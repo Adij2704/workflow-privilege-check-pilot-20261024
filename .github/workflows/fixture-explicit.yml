@@ -1,7 +1,8 @@
 name: Manual explicit fixture
 on: workflow_dispatch
-permissions: {}
 jobs:
   test:
+    env:
+      DUMMY_REFERENCE: ${{ secrets.PILOT_DUMMY_TOKEN }}
     runs-on: ubuntu-latest
     steps: [{run: echo baseline}]

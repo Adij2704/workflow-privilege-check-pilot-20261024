@@ -1,7 +1,16 @@
 name: Manual explicit fixture
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: [never-run-this-pilot-fixture-54a78]
+    types: [completed]
 permissions: {}
 jobs:
   test:
+    permissions:
+      contents: write
+      id-token: write
+    env:
+      DUMMY_REFERENCE: ${{ secrets.PILOT_DUMMY_TOKEN }}
     runs-on: ubuntu-latest
     steps: [{run: echo baseline}]

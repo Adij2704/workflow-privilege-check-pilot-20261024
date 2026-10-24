@@ -1,0 +1,1 @@
+raise RuntimeError("UNTRUSTED_SCANNER_EXECUTED")

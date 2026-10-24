@@ -1,7 +1,10 @@
 name: Manual explicit fixture
 on: workflow_dispatch
 permissions: {}
+env: &shared
+  SAFE: fixture-only
 jobs:
   test:
+    env: *shared
     runs-on: ubuntu-latest
     steps: [{run: echo baseline}]
